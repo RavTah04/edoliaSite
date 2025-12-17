@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 1024" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#63b3ed"/>
+      <stop offset="1" stop-color="#2b6cb0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="transparent"/>
+  <!-- Stylized silhouette of Madagascar (simplified) -->
+  <path d="M220 30 C240 50 270 120 250 160 C230 200 210 220 200 260 C190 300 210 340 220 380 C230 420 210 460 200 500 C190 540 190 620 210 660 C230 700 240 760 220 820 C200 880 180 900 160 940 C130 980 100 980 80 960 C60 940 40 920 30 900 C20 880 40 820 60 760 C80 700 110 640 120 600 C130 560 140 520 160 480 C180 440 200 420 220 380 C240 340 260 300 280 260 C300 220 320 160 310 120 C300 80 260 40 220 30 Z" fill="url(#g)" opacity="0.95" stroke="#1e3a8a" stroke-width="3"/>
+  <!-- Pin marker -->
+  <g transform="translate(320,260)">
+    <circle cx="0" cy="0" r="18" fill="#ef4444" stroke="#fff" stroke-width="3" />
+    <circle cx="0" cy="0" r="8" fill="#fff" />
+  </g>
+  <!-- Title (optional, kept small) -->
+  <text x="50%" y="6%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1e40af" opacity="0.9">MADAGASCAR</text>
+</svg>
