@@ -7,7 +7,7 @@ const data = [
     id: 1,
     name: 'USDA Organic',
     org: 'Département de l\'Agriculture des États-Unis',
-    img: '/USDA-Organic-logo.png',
+    img: '/USDA-Organic-logo.webp',
     description: 'Norme de certification biologique établie par le Département de l\'Agriculture des États-Unis (USDA). Garantit que les produits agricoles sont cultivés et transformés en respectant des normes rigoureuses de l\'agriculture biologique, excluant l\'utilisation de pesticides chimiques, d\'engrais synthétiques et d\'organismes génétiquement modifiés (OGM).',
     details: [
       'Exclusion des pesticides chimiques',

@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Products = () => {
   const featuredProducts = [
-    { id: 1, name: 'Vanille', image: 'Vanille.png', slug: 'vanille' },
+    { id: 1, name: 'Vanille', image: 'Vanille.webp', slug: 'vanille' },
     { id: 2, name: 'Litchis de Madagascar', image: 'https://vanille-naturelle.com/wp-content/uploads/2023/05/7xm.xyz479607-e1684416740845-768x865.jpg', slug: 'litchis' },
     { id: 3, name: 'Riz hybride', image: 'RizHybride.png', slug: 'riz-hybride' },
     { id: 4, name: 'Girofle de Madagascar', image: 'girofle-product.jpg', slug: 'clou-de-girofle' },

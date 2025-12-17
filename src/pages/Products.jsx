@@ -32,7 +32,7 @@ const Products = () => {
       scientificName: 'Vanilla planifolia',
       description: 'Vanille Bourbon de Madagascar, sélectionnée à la main pour ses gousses charnues et son arôme profond et rond.',
       longDescription: 'La vanille naturelle de Madagascar est un trésor gustatif issu de la précieuse orchidée Vanilla planifolia, cultivée dans les riches terres de Madagascar. Connue pour son arôme envoûtant et sa saveur exquise, cette vanille est réputée dans le monde entier.',
-      image: '/Vanille.png',
+      image: '/Vanille.webp',
       background: '/Carre-de-Vanille-Gourmet-Vanille-Noire.webp',
       category: 'Épices',
       origin: 'Madagascar (région SAVA)',
