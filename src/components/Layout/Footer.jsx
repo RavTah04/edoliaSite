@@ -86,8 +86,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="text-primary" size={18} />
-                <a href="mailto:contact@epicesnature.mg" className="text-gray-400 hover:text-primary transition-colors">
-                  contact@edolia.mg
+                <a href="mailto:contact@edolia-mada.com" className="text-gray-400 hover:text-primary transition-colors">
+                  contact@edolia-mada.com
                 </a>
               </div>
             </div>

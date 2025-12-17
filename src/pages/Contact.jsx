@@ -191,10 +191,10 @@ Message envoyé depuis le site edolia.mg`
                     <div>
                       <h3 className="font-semibold text-white mb-1">Email</h3>
                       <a 
-                        href="mailto:contact@edolia.mg?subject=Demande%20d'information&body=Bonjour,%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services.%0A%0ACordialement,"
+                        href="mailto:contact@edolia-mada.com?subject=Demande%20d'information&body=Bonjour,%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services.%0A%0ACordialement,"
                         className="text-red-400 hover:text-red-300 transition-colors flex items-center gap-2 group"
                       >
-                        contact@edolia.mg
+                        contact@edolia-mada.com
                         <MessageSquare size={16} className="group-hover:scale-110 transition-transform" />
                       </a>
                       <p className="text-sm text-gray-400 mt-1">
@@ -238,7 +238,7 @@ Message envoyé depuis le site edolia.mg`
                         <strong>Notification envoyée à :</strong>
                       </p>
                       <p className="text-red-400 text-lg font-semibold">
-                        contact@edolia.mg
+                        contact@edolia-mada.com
                       </p>
                     </div>
                     <button

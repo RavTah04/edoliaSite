@@ -125,11 +125,16 @@ const Home = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <p className="text-sm text-gray-500 mb-2">Email direct</p>
-                          <p className="font-bold text-gray-900">contact@edolia.mg</p>
+                          <p className="font-bold text-gray-900">contact@edolia-mada.com</p>
                         </div>
                         <div>
                           <p className="text-sm text-gray-500 mb-2">Téléphone</p>
-                          <p className="font-bold text-gray-900">+261384214866 </p>
+                          <a 
+                            href="tel:+261384214866"
+                            className="font-bold text-gray-900 hover:text-red-400 transition-colors text-lg"
+                          >
+                            +261 38 42 148 66
+                          </a>
                         </div>
                       </div>
                       

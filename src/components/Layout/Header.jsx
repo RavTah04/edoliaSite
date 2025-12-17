@@ -17,6 +17,8 @@ const Header = () => {
     { label: 'Lingots blancs', path: '/produits/lingots-blancs' },
     { label: 'Pois du cap', path: '/produits/pois-du-cap' },
     { label: 'Clou de girofle', path: '/produits/clou-de-girofle' },
+    { label: 'Miel', path: '/produits/miel' },
+    { label: 'Vanille', path: '/produits/vanille' },
   ];
 
   const navItems = [
@@ -141,7 +143,7 @@ const Header = () => {
                             <div className="col-span-1 flex flex-col items-center border-r border-gray-100 pr-3">
                               <img src="/logo-miellerie-des-pangalanes-vf.png" alt="Miel" loading="eager" className="w-60 h-30 object-contain rounded-md mb-3" />
                               <div className="text-sm font-medium text-gray-800 mb-2">Types de miel</div>
-                              <ul className="text-sm text-gray-600 space-y-0.5 mb-3">
+                              <ul className="text-sm text-gray-800 space-y-0.5 mb-3">
                                 <li>● Miel de Litchi</li>
                                 <li>● Miel de Niaouli</li>
                                 <li>● Miel de Mokarana</li>
@@ -231,46 +233,40 @@ const Header = () => {
                   {item.hasDropdown ? (
                     <>
                       {/* Bouton mobile "Nos Produits" */}
-                      <Link
-                        to="/produits"
+                      <button
+                        onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
                         className={`w-full text-left py-3 px-4 rounded-lg hover:bg-gray-50 flex items-center justify-between transition-all duration-300 font-medium ${
                           location.pathname.includes('/produits') || location.pathname === item.path
                             ? 'bg-gray-50 text-primary font-semibold'
                             : 'text-gray-700 hover:text-primary'
                         }`}
-                        onClick={() => {
-                          setIsMenuOpen(false);
-                        }}
                       >
                         <span>{item.label}</span>
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setIsProductsDropdownOpen(!isProductsDropdownOpen);
-                          }}
-                          className="p-1"
-                        >
-                          <ChevronDown 
-                            size={16} 
-                            className={`transition-transform duration-200 ${
-                              isProductsDropdownOpen ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </button>
-                      </Link>
+                        <ChevronDown 
+                          size={16} 
+                          className={`transition-transform duration-200 ${
+                            isProductsDropdownOpen ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
                       
-                      {/* Sous-menu mobile */}
+                      {/* Sous-menu mobile avec SCROLL */}
                       {isProductsDropdownOpen && (
-                        <div className="ml-4 mt-1 space-y-0.5">
-                          {item.submenu.map((subItem) => (
-                            <button
-                              key={subItem.label}
-                              onClick={() => handleNavigate(subItem.path)}
-                              className="w-full text-left block py-1.5 px-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
-                            >
-                              {subItem.label}
-                            </button>
-                          ))}
+                        <div 
+                          className="ml-4 mt-1"
+                          style={{ maxHeight: '60vh', overflowY: 'auto' }}
+                        >
+                          <div className="space-y-0.5 pr-2">
+                            {item.submenu.map((subItem) => (
+                              <button
+                                key={subItem.label}
+                                onClick={() => handleNavigate(subItem.path)}
+                                className="w-full text-left block py-1.5 px-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                              >
+                                {subItem.label}
+                              </button>
+                            ))}
+                          </div>
                         </div>
                       )}
                     </>

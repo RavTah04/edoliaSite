@@ -94,7 +94,7 @@ const Miel = ({ product, onClose }) => {
             <p className="mb-4 text-gray-900 text-sm"> Bien que l'usine ait été à l'arrêt depuis 2015, elle dispose aujourd'hui d'une infrastructure fonctionnelle et conforme aux standards de qualité, 
               permettant une relance rapide et maîtrisée de l'activité.</p>
             <div className="mt-4 text-gray-900">
-              <h4 className="font-semibold mb-2">Une miellerie professionnelle opérationnelle</h4>
+              <h4 className="text-gray-900 font-semibold mb-2">Une miellerie professionnelle opérationnelle</h4>
               <ul className="list-disc ml-5 text-sm space-y-1">
                 <li className='text-gray-600'><strong>Localisation :</strong> {technicalSpecs.Localisation}</li>
                 <li className='text-gray-600'><strong>Régions d'intervention :</strong> {technicalSpecs.RégionsIntervention}</li>
