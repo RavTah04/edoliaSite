@@ -76,7 +76,7 @@ const Hero = () => {
               </h1>
 
               <p className="mt-6 text-white/70 text-[clamp(1rem,2vw,0.25rem)] max-w-3xl">
-                Export B2B de produits agricoles premium, du terroir malagasy vers les marchés mondiaux.
+                Export B2B de produits agricoles premium, du territoire malagasy vers les marchés mondiaux.
               </p>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
