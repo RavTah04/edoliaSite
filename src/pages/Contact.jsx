@@ -101,7 +101,7 @@ Message envoyé depuis le site edolia.mg`
     },
     {
       question: "Proposez-vous des tarifs professionnels ?",
-      answer: "Oui, nous avons des tarifs dégressifs pour les professionnels."
+      answer: "Oui, nous proposons des tarifs dégressifs pour les professionnels."
     },
     {
       question: "Puis-je visiter vos installations ?",
@@ -144,7 +144,7 @@ Message envoyé depuis le site edolia.mg`
                     <div>
                       <h3 className="font-semibold text-white mb-1">Téléphone</h3>
                       <a 
-                        href="tel:+261346852870"
+                        href="tel:+261384214866"
                         className="text-white hover:text-red-400 transition-colors text-lg"
                       >
                         +261 38 42 148 66

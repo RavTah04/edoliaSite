@@ -39,7 +39,7 @@ const Products = () => {
       grade: 'Bourbon – Grade A',
       size: '18–22 cm',
       moisture: '25–30% (optimale)',
-      packaging: 'Tubes verre scellés / Sacs scellés sous vide'
+      packaging: 'Tubes en verre scellés / Sacs scellés sous vide'
     },
     {
       id: 2,
@@ -98,7 +98,7 @@ const Products = () => {
       id: 4,
       slug: 'pois-du-cap',
       number: '4',
-      name: 'Pois du cap',
+      name: 'Pois du Cap',
       subtitle: 'Kabaro - Traditionnel',
       description: 'Ces pois, également connus sous le nom de « Kabaro », sont appréciés pour leur saveur délicate, leur texture tendre et leur valeur nutritionnelle. Récoltés à maturité, nos pois du Cap sont soigneusement sélectionnés pour garantir leur qualité supérieure.',
       longDescription: 'Les pois du Cap, ou Kabaro, sont une spécialité malgache cultivée selon des méthodes traditionnelles. Leur saveur unique et leur texture crémeuse en font un ingrédient de choix pour de nombreuses recettes locales.',
@@ -152,8 +152,8 @@ const Products = () => {
       number: '6',
       name: 'Fertilisant \'Taroka\'',
       subtitle: 'Naturel et Efficace',
-      description: 'Le Fertilisant Taroka est un produit organique de haute qualité conçu pour répondre aux besoins de l\'agriculture conventionnelle ainsi que de l\'agriculture biologique, conformément au Règlement CE 834/2007.',
-      longDescription: 'Le Fertilisant Taroka est élaboré à partir de matières premières naturelles malgaches. Sa formulation équilibrée nourrit les plantes de manière durable tout en respectant l\'environnement et les sols.',
+      description: 'Le fertilisant Taroka est un produit organique de haute qualité conçu pour répondre aux besoins de l\'agriculture conventionnelle ainsi que de l\'agriculture biologique, conformément au Règlement CE 834/2007.',
+      longDescription: 'Le fertilisant Taroka est élaboré à partir de matières premières naturelles malgaches. Sa formulation équilibrée nourrit les plantes de manière durable tout en respectant l\'environnement et les sols.',
       image: '/engrais-product.jpeg',
       background: '/Fertilisant-Taroka-Stoi-768x540.jpg',
       category: 'Intrants agricoles',
@@ -178,7 +178,7 @@ const Products = () => {
       number: '7',
       name: 'Clous de Girofle Entiers',
       subtitle: 'Épice Royale',
-      description: 'Le Clous de Girofle Entiers Madagascar réputée pour ses vertus thérapeutiques, la fleur de girofle se présente sous la forme d\'un bouton floral entouré de 4 sépales.',
+      description: 'Le clou de girofle entier de Madagascar est réputé pour ses vertus thérapeutiques. La fleur de girofle se présente sous la forme d\'un bouton floral entouré de 4 sépales.',
       longDescription: 'Les clous de girofle de Madagascar sont récoltés manuellement sur des arbres matures. Leur séchage naturel préserve leurs huiles essentielles et leurs propriétés aromatiques et médicinales.',
       image: '/girofle-product.jpg',
       background: '/girofle-product.jpg',
@@ -204,8 +204,7 @@ const Products = () => {
       number: '3',
       name: 'Miellerie des Pangalanes',
       subtitle: 'Miel',
-      description: 'Miel de haute qualité conforme aux normes internationales. ' +
-        'Implantée à Manakara, la Miellerie des Pangalanes est une unité industrielle de transformation du miel, au cœur de l\'une des zones mellifères les plus riches de Madagascar.',
+      description: 'Miel de haute qualité conforme aux normes internationales. Implantée à Manakara, la Miellerie des Pangalanes est une unité industrielle de transformation du miel, au cœur de l\'une des zones mellifères les plus riches de Madagascar.',
       longDescription: ' ',
       image: '/miel.png',
       background: '/Fond-miel-et-litchis.jpg',

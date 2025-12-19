@@ -29,7 +29,7 @@ const ClouDeGirofle = ({ product, onClose }) => {
     };
   }, []);
 
-  const introText = "Issu d’un arbre, le giroflier, le clou de girofle n’est autre que le bouton des fleurs de l’arbre. C’est une épice qui possède une saveur piquante et chaude.";
+  const introText = "Issu d'un arbre, le giroflier, le clou de girofle n'est autre que le bouton des fleurs de l’arbre. C’est une épice qui possède une saveur piquante et chaude.";
 
   return (
     <div className="relative bg-white text-gray-900 rounded-xl p-6 md:p-8">
@@ -138,12 +138,12 @@ const ClouDeGirofle = ({ product, onClose }) => {
       <tr>
         <td className="py-3 px-4 border border-gray-300 text-sm text-gray-800">Conteneur 20′</td>
         <td className="py-3 px-4 border border-gray-300 text-sm text-gray-800">220 sacs – 50 kg</td>
-        <td className="py-3 px-4 border border-gray-300 text-sm text-gray-800 font-medium">11,000 kg</td>
+        <td className="py-3 px-4 border border-gray-300 text-sm text-gray-800 font-medium">11 000 kg</td>
       </tr>
       <tr>
         <td className="py-3 px-4 border border-gray-300 text-sm text-gray-800">Conteneur 40′</td>
         <td className="py-3 px-4 border border-gray-300 text-sm text-gray-800">500 sacs – 50 kg</td>
-        <td className="py-3 px-4 border border-gray-300 text-sm text-gray-800 font-medium">25,000 kg</td>
+        <td className="py-3 px-4 border border-gray-300 text-sm text-gray-800 font-medium">25 000 kg</td>
       </tr>
     </tbody>
   </table>
@@ -172,7 +172,7 @@ const ClouDeGirofle = ({ product, onClose }) => {
     <thead>
       <tr className="bg-gray-50">
         <th className="py-3 px-4 border border-gray-300 text-left text-sm font-semibold text-gray-700">Standards</th>
-        <th className="py-3 px-4 border border-gray-300 text-left text-sm font-semibold text-gray-700">Target values</th>
+        <th className="py-3 px-4 border border-gray-300 text-left text-sm font-semibold text-gray-700">Valeurs cibles</th>
       </tr>
     </thead>
     <tbody>

@@ -14,12 +14,12 @@ const Home = () => {
               <div className="section-padding">
                 {/* Certification marquee */}
                 <div className="animate-fade-in">
-                  <div className="cert-marquee marquee" role="region" aria-label="Certification message en défilement" tabIndex={0}>
+                  <div className="cert-marquee marquee" role="region" aria-label="Message de certification en défilement" tabIndex={0}>
                     <div className="marquee-track">
                       {Array.from({ length: 2 }).map((_, i) => (
                         <div key={i} className="marquee-item cert-marquee-item">
                           <span className="font-semibold">Nos produits sont certifiés par <span className="text-red-400">Ecocert</span>, agriculture biologique</span>
-                          <span>Cette certification garantit que nos produits sont cultivés et produits selon des méthodes durables et respectueuses de l’environnement, répondant aux normes les plus élevées en matière de qualité et de sécurité alimentaire.</span>
+                          <span>Cette certification garantit que nos produits sont cultivés et produits selon des méthodes durables et respectueuses de l'environnement, répondant aux normes les plus élevées en matière de qualité et de sécurité alimentaire.</span>
                         </div>
                       ))}
                     </div>
@@ -31,10 +31,10 @@ const Home = () => {
             <section className="relative z-20 bg-neutral-950 text-white">
               <div className="section-padding">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                  {/* Texte et points clefs */}
+                  {/* Texte et points clés */}
                   <div className="animate-fade-in">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-                      Pourquoi choisir <span className="text-red-600">Edolia</span>?
+                      Pourquoi choisir <span className="text-red-600">Edolia</span> ?
                     </h2>
                     <p className="text-lg max-w-2xl mb-6">
                       Nous combinons expertise technique, contrôle qualité et logistique maîtrisée pour offrir
@@ -68,7 +68,7 @@ const Home = () => {
                         </div>
                         <div>
                           <h4 className="font-semibold">Solutions Durables</h4>
-                          <p className="text-sm">Approche responsable et relation long terme.</p>
+                          <p className="text-sm">Approche responsable et relation à long terme.</p>
                         </div>
                       </div>
 
@@ -97,7 +97,7 @@ const Home = () => {
                       <img src="mes-produits-exporter.png" alt="Logistique et qualité" loading="lazy" className="w-full h-100 object-cover" />
                     </div>
 
-                    {/* Decoration */}
+                    {/* Décoration */}
                     <div className="pointer-events-none absolute -left-6 -bottom-6 w-40 h-40 rounded-xl bg-red-600/8 blur-3xl" />
                     <div className="pointer-events-none absolute -right-8 top-6 w-36 h-36 rounded-xl bg-amber-400/6 blur-3xl" />
                   </div>
@@ -117,7 +117,7 @@ const Home = () => {
                         Besoin d'un devis rapide ou d'informations ?
                       </h3>
                       <p className="text-red-100 leading-relaxed">
-                        Contactez-nous pour évaluer vos besoins et établir une proposition sur mesure
+                        Contactez-nous pour évaluer vos besoins et établir une proposition sur mesure.
                       </p>
                     </div>
                     

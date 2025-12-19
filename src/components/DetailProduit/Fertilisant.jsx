@@ -41,7 +41,7 @@ const Fertilisant = ({ product, onClose }) => {
 
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="text-2xl font-bold text-gray-900">{product.name || 'Vanille'}</h3>
+          <h3 className="text-2xl font-bold text-gray-900">{product.name || 'Fertilisant'}</h3>
           <p className="text-sm italic text-gray-600">De Madagascar</p>
         </div>
         <button onClick={onClose} className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
@@ -63,11 +63,11 @@ const Fertilisant = ({ product, onClose }) => {
             </div>
             
             <p className="mb-4 text-gray-900 text-lg">
-              Le Fertilisant Taroka est un produit organique de haute qualité conçu pour 
-              répondre aux besoins de l’agriculture conventionnelle ainsi que de l’agriculture 
+              Le fertilisant Taroka est un produit organique de haute qualité conçu pour 
+              répondre aux besoins de l'agriculture conventionnelle et de l'agriculture 
               biologique, conformément au Règlement CE 834/2007. 
-              Sa composition organique permet de nourrir les plantes de manière naturelle,
-               favorisant ainsi des récoltes abondantes et de qualité supérieure.
+              Sa composition organique permet de nourrir les plantes naturellement,
+              favorisant ainsi des récoltes abondantes et de qualité supérieure.
             </p>
           </div>
         </div>
@@ -78,15 +78,15 @@ const Fertilisant = ({ product, onClose }) => {
             <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
               <span className="text-lg font-bold text-amber-800">1</span>
             </div>
-            <h2 className="text-xl font-bold text-gray-900">Description </h2>
+            <h2 className="text-xl font-bold text-gray-900">Description</h2>
           </div>
           
           <div className="bg-gray-50 rounded-lg p-4">
             <p className="text-lg leading-relaxed mb-4 text-gray-800">
               Le Taroka est un levain bactérien puissant fixé sur un support organique végétal.
-               Il est scientifiquement élaboré à partir de souches microbiennes sélectionnées. 
-               Ce produit de couleur brune foncée contient une population microbienne riche en substances bénéfiques. 
-               Une fois incorporé dans le sol, il favorise la croissance des plantes. Le Taroka est disponible en deux variantes : 
+              Il est scientifiquement élaboré à partir de souches microbiennes sélectionnées. 
+              Ce produit de couleur brune foncée contient une population microbienne riche en substances bénéfiques. 
+              Une fois incorporé dans le sol, il favorise la croissance des plantes. Le Taroka est disponible en deux variantes : 
               le Taroka simple pour les cultures de feuilles et le Taroka phosphaté pour les cultures de grains ou de fruits.
             </p>
           </div>
@@ -112,20 +112,20 @@ const Fertilisant = ({ product, onClose }) => {
                   <CheckCircle className="text-emerald-600 mt-0.5 flex-shrink-0" size={16} />
                   <span className="text-sm text-gray-800">
                     Réception, contrôle et stockage des matières organiques, dont le ferment de base importé 
-                    d’une usine installée dans la région parisienne et les déchets végétaux locaux.
+                    d'une usine installée dans la région parisienne et les déchets végétaux locaux.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="text-emerald-600 mt-0.5 flex-shrink-0" size={16} />
                   <span className="text-sm text-gray-800">
-                    Procédé de compostage d’au moins 5 mois comprenant l’oxygénation par retournement,
-                     l’hygiénisation et le tamisage pour obtenir un amendement organique stable.
+                    Procédé de compostage d'au moins 5 mois comprenant l'oxygénation par retournement,
+                    l'hygiénisation et le tamisage pour obtenir un amendement organique stable.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="text-emerald-600 mt-0.5 flex-shrink-0" size={16} />
                   <span className="text-sm text-gray-800">
-                    L’amendement organique est utilisé comme base dans la fabrication du fertilisant biologique Taroka.
+                    L'amendement organique est utilisé comme base dans la fabrication du fertilisant biologique Taroka.
                   </span>
                 </li>
               </ul>
@@ -145,7 +145,7 @@ const Fertilisant = ({ product, onClose }) => {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="text-emerald-600 mt-0.5 flex-shrink-0" size={16} />
-                  <span className="text-sm text-gray-800">Équipe de travail d’une centaine de personnes pour produire 10 000 tonnes de Taroka par an.</span>
+                  <span className="text-sm text-gray-800">Équipe de travail d'une centaine de personnes pour produire 10 000 tonnes de Taroka par an.</span>
                 </li>
               </ul>
             </div>
@@ -156,7 +156,7 @@ const Fertilisant = ({ product, onClose }) => {
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="text-emerald-600 mt-0.5 flex-shrink-0" size={16} />
-                  <span className="text-sm text-gray-800">Deux unités d’ensachage : sacs de 5 kg et sacs de 50 kg soudés horizontalement.</span>
+                  <span className="text-sm text-gray-800">Deux unités d'ensachage : sacs de 5 kg et sacs de 50 kg soudés horizontalement.</span>
                 </li>
               </ul>
             </div>
@@ -167,8 +167,8 @@ const Fertilisant = ({ product, onClose }) => {
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="text-emerald-600 mt-0.5 flex-shrink-0" size={16} />
-                  <span className="text-sm text-gray-800">L’étiquetage avec les dosages garantis pour 
-                    chaque formule est réalisé par impression d’encre sur les sacs.</span>
+                  <span className="text-sm text-gray-800">L'étiquetage avec les dosages garantis pour 
+                    chaque formule est réalisé par impression d'encre sur les sacs.</span>
                 </li>
               </ul>
             </div>
@@ -188,11 +188,11 @@ const Fertilisant = ({ product, onClose }) => {
               Le fertilisant Taroka peut être utilisé tout au long de la période de végétation, 
               y compris pendant la contre-saison, pour régénérer le sol en préparation de la prochaine saison de culture. 
               Lors de la préparation du sol, il est recommandé de mélanger le Taroka avec de la 
-              terre pour faciliter l’épandage. Pendant le semis, le repiquage et la plantation, 
+              terre pour faciliter l'épandage. Pendant le semis, le repiquage et la plantation, 
               le Taroka doit être enfoui à au moins 10 cm de profondeur dans le trou ou le sillon.
-               Pendant l’entretien des cultures établies, tel que le sarclage et le buttage, 
-               il est important de conserver le Taroka à l’abri du soleil. 
-               Il est recommandé de mettre en place le Taroka au moins une semaine avant le semis, le repiquage ou la plantation.
+              Pendant l'entretien des cultures établies, tel que le sarclage et le buttage, 
+              il est important de conserver le Taroka à l'abri du soleil. 
+              Il est recommandé de mettre en place le Taroka au moins une semaine avant le semis, le repiquage ou la plantation.
             </p>
           </div>
         </section>

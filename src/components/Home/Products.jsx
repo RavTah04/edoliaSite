@@ -80,7 +80,7 @@ const Products = () => {
               Nos produits
             </span>
           </h2>
-          <p className="mt-3 text-sm md:text-base text-gray-300">Nous avons produits bio de qualité supérieure, cultiver avec soin à Madagascar.</p>
+          <p className="mt-3 text-sm md:text-base text-gray-300">Nous produisons des produits bio de qualité supérieure, cultivés avec soin à Madagascar.</p>
         </div>
 
         {/* Conteneur avec indicateurs de scroll */}

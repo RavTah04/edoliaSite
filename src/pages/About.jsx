@@ -91,14 +91,14 @@ const About = () => {
               
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed">
-                  Mettre en avant les richesses agricoles de Madagascar ainsi que d'autres régions tropicales 
+                  Mettre en valeur les richesses agricoles de Madagascar ainsi que d'autres régions tropicales 
                   en fournissant des produits d'exception.
                 </p>
                 
                 <div className="bg-red-50 border-l-4 border-red-500 pl-6 py-4 rounded-r-lg animate-pulse-red">
                   <p className="font-semibold text-gray-800 mb-2">Nos produits phares :</p>
                   <div className="grid grid-cols-2 gap-2">
-                    {['Engrais naturels', 'Riz hybride', 'Girofle', 'Vanille', 'Litchis', 'Intrants agricoles'].map((product, index) => (
+                    {['Engrais naturels', 'Riz hybride', 'Girofle', 'Vanille', 'Litchis', 'Miel', 'Fertilisant / Taroka', 'Lingots blancs', 'Poids du cap'].map((product, index) => (
                       <div key={index} className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" style={{ animationDelay: `${index * 0.1}s` }}></div>
                         <span className="text-gray-700">{product}</span>
@@ -138,7 +138,7 @@ const About = () => {
                       {/* Overlay avec nom du produit */}
                       <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
                         <h4 className="text-white text-xl font-bold">
-                          {['Litchis Frais','Girofle de Madagascar','Engrais Naturels','Vanille Bourbon','Riz Hybride'][index]}
+                          {['Miel de Madagascar', 'Litchis Frais', 'Girofle de Madagascar', 'Engrais Naturels', 'Vanille Bourbon', 'Riz Hybride'][index]}
                         </h4>
                       </div>
                     </div>
@@ -346,7 +346,7 @@ const About = () => {
                 <div className="relative">
                   <div className="absolute -left-3 top-0 bottom-0 w-1 bg-gradient-to-b from-red-400 to-red-200 rounded-full"></div>
                   <p className="text-gray-300 text-lg leading-relaxed pl-6">
-                    Forte de l'expertise du groupe <span className="font-semibold text-red-400">STOI</span> 
+                    Forte de l'expertise du groupe <span className="font-semibold text-red-400">STOI </span> 
                     (20+ ans d'expérience), Edolia bénéficie d'un savoir-faire solide, 
                     d'un réseau établi et d'une compréhension fine des réalités du terrain.
                   </p>
@@ -364,7 +364,7 @@ const About = () => {
               <div className="flex flex-wrap gap-4 pt-4">
                 {[
                   { value: '2023', label: 'Fondation' },
-                  { value: '20+', label: 'Ans expertise' },
+                  { value: '20+', label: "Ans d\'expertise" },
                   { value: '6+', label: 'Produits' },
                   { value: '100%', label: 'Traçabilité' }
                 ].map((stat, index) => (

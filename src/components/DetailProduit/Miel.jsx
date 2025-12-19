@@ -52,7 +52,7 @@ const Miel = ({ product, onClose }) => {
 
   const technicalSpecs = {
     Localisation: "Manakara – Côte Est de Madagascar",
-    RégionsIntervention: " Atsimo Atsinanana, Vatovavy, Fitovinanay",
+    RégionsIntervention: "Atsimo Atsinanana, Vatovavy, Fitovinany",
     extraction: "2 tonnes/jour",
     Équipements: "Ligne complète d'extraction professionnelle (marque ICKO)"
   };
@@ -69,7 +69,7 @@ const Miel = ({ product, onClose }) => {
 
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="text-2xl font-bold text-gray-900">{product.name || 'Vanille'}</h3>
+          <h3 className="text-2xl font-bold text-gray-900">{product.name || 'Miel'}</h3>
           <p className="text-sm italic text-gray-600">De Madagascar</p>
         </div>
         <button onClick={onClose} className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
@@ -91,7 +91,7 @@ const Miel = ({ product, onClose }) => {
             </div>
             
             <p className="mb-4 text-gray-900 text-lg">{introText}</p>
-            <p className="mb-4 text-gray-900 text-sm"> Bien que l'usine ait été à l'arrêt depuis 2015, elle dispose aujourd'hui d'une infrastructure fonctionnelle et conforme aux standards de qualité, 
+            <p className="mb-4 text-gray-900 text-sm">Bien que l'usine ait été à l'arrêt depuis 2015, elle dispose aujourd'hui d'une infrastructure fonctionnelle et conforme aux standards de qualité, 
               permettant une relance rapide et maîtrisée de l'activité.</p>
             <div className="mt-4 text-gray-900">
               <h4 className="text-gray-900 font-semibold mb-2">Une miellerie professionnelle opérationnelle</h4>
@@ -114,7 +114,7 @@ const Miel = ({ product, onClose }) => {
             <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
               <span className="text-lg font-bold text-amber-800">1</span>
             </div>
-            <h2 className="text-xl font-bold text-gray-900">Objectif </h2>
+            <h2 className="text-xl font-bold text-gray-900">Objectif</h2>
           </div>
           
           <div className="bg-gray-50 rounded-lg p-4">
@@ -140,7 +140,7 @@ const Miel = ({ product, onClose }) => {
                 <span className="text-sm text-gray-800">
                   renforcer les capacités économiques des communautés 
                   d'apiculteurs grâce à un modèle d'agrégation agricole structuré,
-                   en vue d'une intégration progressive sur les marchés nationaux et internationaux.</span>
+                  en vue d'une intégration progressive sur les marchés nationaux et internationaux.</span>
               </li>
             </ul>
           </div>
@@ -280,7 +280,7 @@ const Miel = ({ product, onClose }) => {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="text-emerald-600 mt-0.5 flex-shrink-0" size={16} />
-                  <span className="text-sm text-gray-800">Région du Sud Est de Madagascar : favorable à l'apiculture</span>
+                  <span className="text-sm text-gray-800">Région du Sud-Est de Madagascar : favorable à l'apiculture</span>
                 </li>
               </ul>
             </div>
@@ -329,13 +329,13 @@ const Miel = ({ product, onClose }) => {
           </div>
         </section>
 
-        {/* Impact et durabilités */}
+        {/* Impact et durabilité */}
         <section className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
           <h3 className="font-bold text-gray-900 mb-3">Impact & durabilité</h3>
           <ul className="space-y-2">
             <li className="flex items-center gap-2">
               <CheckCircle className="text-emerald-600" size={16} />
-              <span className="text-sm text-gray-800">Apiculture sans résidus chimique</span>
+              <span className="text-sm text-gray-800">Apiculture sans résidus chimiques</span>
             </li>
             <li className="flex items-center gap-2">
               <CheckCircle className="text-emerald-600" size={16} />

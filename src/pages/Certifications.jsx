@@ -45,7 +45,7 @@ const data = [
     description: 'Norme internationale de certification biologique garantissant que les produits sont cultivés et transformés selon des normes strictes de l\'agriculture biologique. Cette certification atteste que les produits sont d\'origine biologique, exempts de résidus chimiques et respectueux de l\'environnement.',
     details: [
       'Origine biologique vérifiée',
-      'Exempt de résidus chimiques',
+      'Exempts de résidus chimiques',
       'Respectueux de l\'environnement',
       'Contrôles réguliers',
       'Reconnaissance internationale',
@@ -65,7 +65,7 @@ const data = [
       'Protection de la santé humaine',
       'Préservation de l\'environnement',
       'Qualité biologique garantie',
-      'Confiance consommateur',
+      'Confiance du consommateur',
       'Conformité aux standards CE'
     ],
     color: 'yellow',
@@ -201,14 +201,13 @@ export default function Certifications() {
         transition={{ duration: 0.6 }}
         className="relative z-10 text-center mb-16 max-w-4xl"
       >
-        <p className="text-gray-300 text-sm py-2">Certifications de EDOLIA Madagascar</p>
+        <p className="text-gray-300 text-sm py-2">Certifications EDOLIA Madagascar</p>
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
           NOS CERTIFICATIONS
         </h2>
         <p className="text-gray-300 text-lg">
           Pour les consommateurs, les certifications jouent un rôle crucial dans le choix des produits. 
-          Elles offrent une garantie de qualité, 
-          de sécurité alimentaire et de respect de l’environnement.
+          Elles offrent une garantie de qualité, de sécurité alimentaire et de respect de l'environnement.
         </p>
       </motion.div>
 

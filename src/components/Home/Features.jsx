@@ -12,7 +12,7 @@ const Features = () => {
     {
       icon: Target,
       title: 'Transparence & Traçabilité',
-      description: 'Chaîne d’approvisionnement entièrement maîtrisée, du producteur au client final.',
+      description: 'Chaîne d\'approvisionnement entièrement maîtrisée, du producteur au client final.',
       color: 'from-blue-400 to-blue-600'
     },
     {
@@ -24,13 +24,13 @@ const Features = () => {
     {
       icon: TrendingUp,
       title: 'Ambition & Innovation',
-      description: 'Vision stratégique combinée à l innovation pour répondre aux besoins du marché international.',
+      description: 'Vision stratégique combinée à l\'innovation pour répondre aux besoins du marché international.',
       color: 'from-purple-400 to-purple-600'
     },
     {
       icon: CheckCircle,
       title: 'Fiabilité & Excellence',
-      description: 'Entreprise moderne adossée à 20 ans d expérience via le groupe STOI.',
+      description: 'Entreprise moderne adossée à 20 ans d\'expérience via le groupe STOI.',
       color: 'from-amber-400 to-amber-600'
     },
     {

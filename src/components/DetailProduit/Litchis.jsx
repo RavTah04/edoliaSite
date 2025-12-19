@@ -31,14 +31,14 @@ const Litchis = ({ product, onClose }) => {
 
   const processSteps = [
     "Sélection des variétés adaptées",
-    "La préparation du sol",
-    "La plantation des litchis",
-    "Les soins et l’entretien",
-    "La récolte à maturité",
-    "La transformation et l’emballage"
+    "Préparation du sol",
+    "Plantation des litchis",
+    "Soins et entretien",
+    "Récolte à maturité",
+    "Transformation et emballage"
   ];
 
-  const introText = "Le litchi de Madagascar est cultivés dans les régions ensoleillées, ces litchis sont récoltés à la main à maturité, garantissant une chair juteuse et sucrée. Leur saveur exotique et leur texture délicate font des litchis de Madagascar une expérience gustative incomparable.";
+  const introText = "Les litchis de Madagascar sont cultivés dans les régions ensoleillées. Récoltés à la main à maturité, ils offrent une chair juteuse et sucrée. Leur saveur exotique et leur texture délicate font des litchis de Madagascar une expérience gustative incomparable.";
 
   return (
     <div className="relative bg-white text-gray-900 rounded-xl p-6 md:p-8">
@@ -52,7 +52,7 @@ const Litchis = ({ product, onClose }) => {
 
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="text-2xl font-bold text-gray-900">{product.name || 'Vanille'}</h3>
+          <h3 className="text-2xl font-bold text-gray-900">{product.name || 'Litchis'}</h3>
           <p className="text-sm italic text-gray-600">De Madagascar</p>
         </div>
         <button onClick={onClose} className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
@@ -88,10 +88,10 @@ const Litchis = ({ product, onClose }) => {
           
           <div className="bg-gray-50 rounded-lg p-4">
             <p className="text-lg leading-relaxed mb-4 text-gray-800">
-              Litchi de MadagascarCultivé dans les régions côtières de la grande île, 
-              le terroir unique du pays confère aux litchis une saveur distinctive. 
+              Les litchis de Madagascar sont cultivés dans les régions côtières de la grande île. 
+              Le terroir unique du pays confère aux litchis une saveur distinctive. 
               Grâce à des pratiques agricoles durables et à des contrôles de qualité rigoureux, 
-              STOI assure la transformation et l’exportation de ces délicieux fruits dans le monde entier, 
+              Edolia assure la transformation et l'exportation de ces délicieux fruits dans le monde entier, 
               contribuant ainsi au développement économique de la région.
             </p>
           </div>
@@ -125,16 +125,16 @@ const Litchis = ({ product, onClose }) => {
                 <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
                   <span className="font-bold text-amber-800">3</span>
                 </div>
-                <h2 className="font-bold text-gray-900 ">Récolte & Transformation​</h2>
+                <h2 className="font-bold text-gray-900">Récolte & Transformation​</h2>
               </div>
 
               <div className="bg-gray-50 rounded-lg p-4">
                 <p className="text-lg text-gray-700 mb-3">
-                    STOI applique des méthodes de récolte et de transformation rigoureusement élaborées pour les litchis de Madagascar. 
-                    Des équipes spécialisées récoltent les litchis à maturité optimale, en veillant à leur préservation. 
-                    Les fruits sont ensuite acheminés vers les installations de transformation de STOI, où ils sont triés, lavés et emballés avec précision. 
-                    Grâce à des contrôles de qualité stricts, 
-                    seuls les litchis de la plus haute qualité sont sélectionnés pour garantir une expérience gustative exceptionnelle.
+                  Edolia applique des méthodes de récolte et de transformation rigoureuses pour les litchis de Madagascar. 
+                  Des équipes spécialisées récoltent les litchis à maturité optimale, en veillant à leur préservation. 
+                  Les fruits sont ensuite acheminés vers les installations de transformation de Edolia, où ils sont triés, lavés et emballés avec précision. 
+                  Grâce à des contrôles de qualité stricts, 
+                  seuls les litchis de la plus haute qualité sont sélectionnés pour garantir une expérience gustative exceptionnelle.
                 </p>
               </div>
             </div>
@@ -147,14 +147,14 @@ const Litchis = ({ product, onClose }) => {
                 <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
                   <span className="font-bold text-amber-800">4</span>
                 </div>
-                <h2 className="font-bold text-gray-900 ">Nos variétés</h2>
+                <h2 className="font-bold text-gray-900">Nos variétés</h2>
             </div>
             <div className="mt-4 text-gray-900">
               <ul className="list-disc ml-5 text-sm space-y-1">
-                <li className='text-gray-600'><strong>litchis primeurs :</strong> <p className='text-gray-600'>par avion (litchis à maturité précoce, avant l’ouverture de la campagne/saison officielle)</p></li>
-                <li className='text-gray-600'><strong>litchis frais égrenés  :</strong> <p className='text-gray-600'>bio par avion (certification ECOCERT)</p></li>
-                <li className='text-gray-600'><strong>litchis frais branchés :</strong> <p className='text-gray-600'>(longueur grappe supérieur à 15 cm) et égrenés (pédoncule supérieur à 5 mm) par avion</p></li>
-                <li className='text-gray-600'><strong>litchis soufrés égrenés:</strong> <p className='text-gray-600'>par avion et par bateau (traitement à l’anhydride sulfureux)</p></li>
+                <li className='text-gray-600'><strong>Litchis primeurs :</strong> <p className='text-gray-600'>par avion (litchis à maturité précoce, avant l'ouverture de la campagne/saison officielle)</p></li>
+                <li className='text-gray-600'><strong>Litchis frais égrenés :</strong> <p className='text-gray-600'>bio par avion (certification ECOCERT)</p></li>
+                <li className='text-gray-600'><strong>Litchis frais branchés :</strong> <p className='text-gray-600'>(longueur de grappe supérieure à 15 cm) et égrenés (pédoncule supérieur à 5 mm) par avion</p></li>
+                <li className='text-gray-600'><strong>Litchis soufrés égrenés :</strong> <p className='text-gray-600'>par avion et par bateau (traitement à l'anhydride sulfureux)</p></li>
               </ul>
             </div>
        <div className="mt-4 bg-gray-50 rounded-lg p-4">
@@ -171,14 +171,14 @@ const Litchis = ({ product, onClose }) => {
           Ils sont ensuite rapidement transportés vers des installations de transformation spécialement équipées. Les litchis sont triés, 
           nettoyés et emballés de manière à préserver leur texture délicate et leur goût exquis. Le respect de la chaîne du froid est essentiel pour préserver leur fraîcheur. 
           Les litchis primeurs de Madagascar sont expédiés rapidement vers les marchés internationaux,
-          permettant aux consommateurs de déguster ces délicieux fruits dans leur état 'prime',
+          permettant aux consommateurs de déguster ces délicieux fruits dans leur état prime,
           avec leur douceur et leur arôme caractéristiques préservés.
         </p>
       </div>
       
       {/* Case 2 */}
       <div className="bg-white p-4 rounded-lg border border-gray-200">
-        <h5 className="font-semibold text-gray-900 text-lgmb-2">Litchis frais égrenés bio</h5>
+        <h5 className="font-semibold text-gray-900 text-lg mb-2">Litchis frais égrenés bio</h5>
         <p className="text-gray-700 text-sm">
           Une fois que les litchis atteignent leur maturité optimale, ils sont soigneusement récoltés.
           Les fruits sont ensuite acheminés vers des installations de transformation, où ils sont épluchés et débarrassés de leurs pépins avec une grande précision. 
@@ -192,7 +192,7 @@ const Litchis = ({ product, onClose }) => {
     <div className="grid grid-cols-2 gap-4 md:col-span-2">
       {/* Case 3 */}
       <div className="bg-white p-4 rounded-lg border border-gray-200">
-        <h5 className="font-semibold text-gray-900 text-lgmb-2">Litchis frais branchés</h5>
+        <h5 className="font-semibold text-gray-900 text-lg mb-2">Litchis frais branchés</h5>
         <p className="text-gray-700 text-sm">
           Les fruits sont cueillis en conservant leur branche d'origine, 
           ce qui maintient leur fraîcheur et leur aspect esthétique attrayant. 

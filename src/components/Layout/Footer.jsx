@@ -29,7 +29,7 @@ const Footer = () => {
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Fournisseur premium de produits naturels biologiques de Madagascar, 
-              engagé pour une agriculture durable et le commerce équitable.
+              engagé en faveur d'une agriculture durable et du commerce équitable.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6 text-white">Navigation</h4>
             <ul className="space-y-3">
-              {['Accueil', 'Nos Produits', 'À Propos','Services', 'Contact'].map((item) => (
+              {['Accueil', 'Nos Produits', 'À Propos', 'Services', 'Contact'].map((item) => (
                 <li key={item}>
                   <Link 
                     to={`/${item === 'Accueil' ? '' : item.toLowerCase().replace(' ', '-')}`}
