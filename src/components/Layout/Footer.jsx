@@ -86,8 +86,9 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="text-primary" size={18} />
-                <a href="mailto:contact@edolia-mada.com" className="text-gray-400 hover:text-primary transition-colors">
-                  contact@edolia-mada.com
+                <a href="mailto:contact@edolia-mada.com?subject=Demande%20d'information&body=Bonjour,%0A%0AJe%20souhaite%20obtenir%20des%20informations%20sur%20vos%20services.%0A%0ACordialement,"
+                    className="text-red-400 hover:text-red-300 transition-colors flex items-center gap-2 group"
+                    > contact@edolia-mada.com
                 </a>
               </div>
             </div>

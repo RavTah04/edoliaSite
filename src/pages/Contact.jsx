@@ -54,40 +54,41 @@ const Contact = () => {
     setIsSubmitting(true);
     setErrors({});
 
-    // Netlify Forms gère automatiquement l'envoi via le formulaire HTML natif
-    // Pas besoin de fetch() ou API call
+    // Encode les données pour Netlify Forms
+    const form = e.target;
+    const formData = new FormData(form);
     
-    // Simulation pour l'UX (Netlify fera le vrai travail)
-    setTimeout(() => {
-      setIsSubmitted(true);
-      setIsSubmitting(false);
-      
-      // Réinitialiser le formulaire
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        inquiry: ''
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
       });
-    }, 1000);
-  };
 
-  const createMailtoLink = () => {
-    const subject = encodeURIComponent("Demande de contact - Site Edolia");
-    const body = encodeURIComponent(
-      `Bonjour,
-
-Nom: ${formData.name || '[Non renseigné]'}
-Email: ${formData.email || '[Non renseigné]'}
-Téléphone: ${formData.phone || '[Non renseigné]'}
-
-Message:
-${formData.inquiry || '[Non renseigné]'}
-
----
-Message envoyé depuis le site edolia.mg`
-    );
-    return `mailto:contact@edolia.mg?subject=${subject}&body=${body}`;
+      if (response.ok) {
+        // Succès - Netlify a reçu le formulaire
+        setIsSubmitted(true);
+        setIsSubmitting(false);
+        
+        // Réinitialiser le formulaire
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          inquiry: ''
+        });
+        
+        // Optionnel: scroll vers le message de succès
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // Erreur
+        throw new Error('Erreur lors de l\'envoi');
+      }
+    } catch (error) {
+      console.error('Erreur:', error);
+      setErrors({ submit: "Une erreur est survenue lors de l'envoi. Veuillez réessayer ou utiliser l'email directement." });
+      setIsSubmitting(false);
+    }
   };
 
   const toggleFaq = (index) => {
@@ -257,12 +258,13 @@ Message envoyé depuis le site edolia.mg`
                       Votre message sera envoyé directement à notre boîte email et vous recevrez une copie de confirmation.
                     </p>
 
-                    {/* Formulaire Netlify - IMPORTANT : data-netlify="true" */}
+                    {/* Formulaire Netlify - IMPORTANT : data-netlify="true" et netlify */}
                     <form 
                       name="contact" 
                       method="POST" 
                       data-netlify="true"
                       data-netlify-honeypot="bot-field"
+                      netlify
                       onSubmit={handleSubmit}
                       className="space-y-6"
                     >
@@ -271,16 +273,18 @@ Message envoyé depuis le site edolia.mg`
                       
                       {/* Honeypot pour spam */}
                       <div className="hidden">
-                        <label>Ne remplissez pas ce champ : <input name="bot-field" /></label>
+                        <label htmlFor="bot-field">Ne remplissez pas ce champ :</label>
+                        <input name="bot-field" id="bot-field" />
                       </div>
 
                       {/* Nom complet */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="name">
                           Nom complet *
                         </label>
                         <input
                           type="text"
+                          id="name"
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
@@ -297,11 +301,12 @@ Message envoyé depuis le site edolia.mg`
 
                       {/* Email */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="email">
                           Email *
                         </label>
                         <input
                           type="email"
+                          id="email"
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
@@ -318,11 +323,12 @@ Message envoyé depuis le site edolia.mg`
 
                       {/* Téléphone */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="phone">
                           Téléphone
                         </label>
                         <input
                           type="tel"
+                          id="phone"
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
@@ -333,10 +339,11 @@ Message envoyé depuis le site edolia.mg`
 
                       {/* Message */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="inquiry">
                           Votre message *
                         </label>
                         <textarea
+                          id="inquiry"
                           name="inquiry"
                           value={formData.inquiry}
                           onChange={handleChange}
@@ -351,6 +358,19 @@ Message envoyé depuis le site edolia.mg`
                           <p className="mt-1 text-sm text-red-400">{errors.inquiry}</p>
                         )}
                       </div>
+
+                      {/* Erreur générale */}
+                      {errors.submit && (
+                        <div className="bg-red-900/30 border border-red-700 rounded-lg p-3">
+                          <p className="text-red-300 text-sm">{errors.submit}</p>
+                          <a 
+                            href="mailto:contact@edolia-mada.com" 
+                            className="text-red-400 hover:text-red-300 underline text-sm mt-1 inline-block"
+                          >
+                            Cliquez ici pour envoyer directement par email
+                          </a>
+                        </div>
+                      )}
 
                       {/* Bouton d'envoi */}
                       <div className="pt-4">
@@ -374,19 +394,14 @@ Message envoyé depuis le site edolia.mg`
                       </div>
                     </form>
 
-                    {/* Alternative mailto pour mobile
+                    {/* Alternative mailto pour mobile */}
                     <div className="mt-8 pt-8 border-t border-gray-800">
                       <div className="text-center">
                         <p className="text-sm text-gray-400 mb-3">
                           Préférez-vous utiliser directement votre application email ?
                         </p>
                         <a
-                          href="#"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            const mailtoLink = createMailtoLink();
-                            window.location.href = mailtoLink;
-                          }}
+                          href="mailto:contact@edolia-mada.com?subject=Demande de contact"
                           className="inline-flex items-center justify-center w-full max-w-md py-3 border border-gray-700 rounded-lg text-gray-300 hover:bg-gray-800 transition-colors hover:border-gray-600"
                         >
                           <Mail className="w-5 h-5 mr-2" />
@@ -396,7 +411,7 @@ Message envoyé depuis le site edolia.mg`
                           Recommandé pour les pièces jointes
                         </p>
                       </div>
-                    </div> */}
+                    </div>
                   </>
                 )}
               </div>
@@ -449,7 +464,6 @@ Message envoyé depuis le site edolia.mg`
           </div>
         </div>
       </div>
-
     </div>
   );
 };
