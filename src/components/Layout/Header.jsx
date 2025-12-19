@@ -1,5 +1,5 @@
 import { Menu, X, Globe, ChevronDown } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react'; // Ajout de useRef
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
@@ -7,6 +7,7 @@ const Header = () => {
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const dropdownTimeoutRef = useRef(null); // Référence pour le timeout
 
   // Sous-menu des produits
   const productSubmenu = [
@@ -45,38 +46,61 @@ const Header = () => {
     },
   ];
 
-  // Keep header static on scroll — no scroll listener (stable appearance)
-
   const handleProductsClick = (e) => {
     e.preventDefault();
     navigate('/produits');
   };
 
   const handleMouseEnter = () => {
+    // Annuler tout timeout en cours
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
     setIsProductsDropdownOpen(true);
 
     // Warm-up: prefetch the Products page chunk so navigation feels instant
     import('../../pages/Products').catch(() => {});
 
-    // Prefetch a few critical images (honey logo and featured thumbnails)
-    ['/logo-miellerie-des-pangalanes-vf.png', '/Vanille.png', '/miel.png'].forEach((src) => {
+    // Prefetch a few critical images
+    ['/logo-miellerie-des-pangalanes-vf.png'].forEach((src) => {
       const img = new Image();
       img.src = src;
     });
   };
 
   const handleMouseLeave = () => {
-    setIsProductsDropdownOpen(false);
+    // Délai avant de fermer le dropdown (donne le temps à l'utilisateur)
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsProductsDropdownOpen(false);
+    }, 300); // 300ms de délai
   };
 
-  // Centralized navigation helper to close menus and navigate
+  // Fonction pour annuler le timeout si on revient sur la zone
+  const cancelMouseLeave = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+  };
+
+  // Nettoyer le timeout lors du démontage
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Centralized navigation helper
   const handleNavigate = (path) => {
     setIsProductsDropdownOpen(false);
     setIsMenuOpen(false);
     navigate(path);
   };
 
-  // Static header appearance (no change on scroll)
+  // Static header appearance
   const headerZIndex = 'z-40';
   const headerStyle = 'bg-black/30 backdrop-blur-xl border-b border-white/10 transition-all duration-300';
 
@@ -87,7 +111,7 @@ const Header = () => {
     <header className={`fixed top-0 left-0 w-full ${headerZIndex} ${headerStyle}`}>
       <div className="section-padding max-w-7xl mx-auto py-4">
         <div className="flex items-center justify-between">
-          {/* Logo à gauche - SANS LIEN */}
+          {/* Logo à gauche */}
           <div className="flex items-center space-x-2">
             <div className="w-40 flex items-center justify-center">
               <img 
@@ -111,13 +135,20 @@ const Header = () => {
                   onMouseEnter={item.hasDropdown ? handleMouseEnter : undefined}
                   onMouseLeave={item.hasDropdown ? handleMouseLeave : undefined}
                   onFocus={item.hasDropdown ? handleMouseEnter : undefined}
-                  onKeyDown={(e) => { if (e.key === 'Escape') setIsProductsDropdownOpen(false); }}
+                  onKeyDown={(e) => { 
+                    if (e.key === 'Escape') {
+                      setIsProductsDropdownOpen(false);
+                    }
+                  }}
                 >
                   {item.hasDropdown ? (
                     <div className="relative">
+                      {/* Zone invisible pour faciliter le passage */}
+                      <div className="absolute -bottom-2 left-0 right-0 h-4 bg-transparent z-30" />
+                      
                       <button
                         onClick={handleProductsClick}
-                        className={`flex items-center space-x-1 transition-all duration-300 font-medium hover:scale-105 ${
+                        className={`flex items-center space-x-1 transition-all duration-300 font-medium hover:scale-105 relative z-20 ${
                           location.pathname.includes('/produits') || location.pathname === item.path
                             ? 'text-primary font-semibold'
                             : textColor
@@ -135,12 +166,27 @@ const Header = () => {
                       {isProductsDropdownOpen && (
                         <div 
                           className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-lg shadow-xl border border-gray-100 py-3 px-3 z-50"
-                          onMouseEnter={handleMouseEnter}
-                          onMouseLeave={handleMouseLeave}
+                          onMouseEnter={cancelMouseLeave} // Annule la fermeture
+                          onMouseLeave={handleMouseLeave} // Déclenche la fermeture
+                          // Triangle de connexion (optionnel)
+                          style={{ 
+                            marginTop: '0.5rem',
+                            // Assure la connexion visuelle
+                            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 2% 100%, 2% 10%, 0% 0%)'
+                          }}
                         >
+                          {/* Zone invisible en haut pour faciliter le passage */}
+                          <div 
+                            className="absolute -top-4 left-0 right-0 h-4 bg-transparent"
+                            onMouseEnter={cancelMouseLeave}
+                          />
+                          
                           <div className="grid grid-cols-3 gap-2">
-                            {/* Left column: Miel teaser (logo + types + CTA) */}
-                            <div className="col-span-1 flex flex-col items-center border-r border-gray-100 pr-3">
+                            {/* Left column: Miel teaser */}
+                            <div 
+                              className="col-span-1 flex flex-col items-center border-r border-gray-100 pr-3"
+                              onMouseEnter={cancelMouseLeave}
+                            >
                               <img src="/logo-miellerie-des-pangalanes-vf.png" alt="Miel" loading="eager" className="w-60 h-30 object-contain rounded-md mb-3" />
                               <div className="text-sm font-medium text-gray-800 mb-2">Types de miel</div>
                               <ul className="text-sm text-gray-800 space-y-0.5 mb-3">
@@ -159,7 +205,10 @@ const Header = () => {
                             </div>
 
                             {/* Right column: existing submenu list */}
-                            <div className="col-span-2">
+                            <div 
+                              className="col-span-2"
+                              onMouseEnter={cancelMouseLeave}
+                            >
                               <div className="grid grid-cols-1">
                                 {item.submenu.map((subItem) => (
                                   <button
@@ -215,11 +264,10 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Navigation Mobile */}
+        {/* Navigation Mobile (inchangée) */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 animate-slideDown z-50">
             <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-2">
-              {/* Contact button (mobile, prominent) */}
               <Link
                 to="/contact"
                 className="block w-full text-center py-3 px-4 mb-2 rounded-lg bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors"
@@ -232,7 +280,6 @@ const Header = () => {
                 <div key={item.label}>
                   {item.hasDropdown ? (
                     <>
-                      {/* Bouton mobile "Nos Produits" */}
                       <button
                         onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
                         className={`w-full text-left py-3 px-4 rounded-lg hover:bg-gray-50 flex items-center justify-between transition-all duration-300 font-medium ${
@@ -250,7 +297,6 @@ const Header = () => {
                         />
                       </button>
                       
-                      {/* Sous-menu mobile avec SCROLL */}
                       {isProductsDropdownOpen && (
                         <div 
                           className="ml-4 mt-1"
