@@ -313,7 +313,7 @@ Envoyé depuis le formulaire de contact du site edolia-mada.com
                 </h3>
                 <div className="bg-gray-800 rounded-xl overflow-hidden h-64">
                   <iframe
-                    src="https://maps.google.com/maps?q=edolia&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=85+bd+joffre+plle+32%2F11+toamasina&z=17&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
