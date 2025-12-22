@@ -74,8 +74,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="text-primary mt-1 flex-shrink-0" size={18} />
                 <span className="text-gray-400 text-sm">
-                  Immeuble STOI Ankorondrano Village des jeux,<br />
-                  Antananarivo 101, Madagascar
+                  85 BD JOFFRE PLLE 32/11,<br />
+                  Toamasina 501, Madagascar
                 </span>
               </div>
               <div className="flex items-center space-x-3">

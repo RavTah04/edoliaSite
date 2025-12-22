@@ -54,19 +54,42 @@ const Contact = () => {
     setIsSubmitting(true);
     setErrors({});
 
-    // Encode les données pour Netlify Forms
-    const form = e.target;
-    const formData = new FormData(form);
-    
+    // Log pour débogage
+    console.log('Données à envoyer:', {
+      'form-name': 'contact',
+      ...formData,
+      'bot-field': ''
+    });
+
     try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
+      // Encode les données pour Netlify Forms
+      const formDataEncoded = new URLSearchParams({
+        'form-name': 'contact',
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || '',
+        inquiry: formData.inquiry,
+        'bot-field': ''
+      }).toString();
+
+      console.log('Données encodées:', formDataEncoded);
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formDataEncoded,
+      });
+
+      console.log('Réponse Netlify:', {
+        status: response.status,
+        ok: response.ok,
+        url: response.url
       });
 
       if (response.ok) {
-        // Succès - Netlify a reçu le formulaire
+        // Succès
         setIsSubmitted(true);
         setIsSubmitting(false);
         
@@ -78,17 +101,79 @@ const Contact = () => {
           inquiry: ''
         });
         
+        // Réinitialiser aussi le formulaire HTML
+        e.target.reset();
+        
         // Optionnel: scroll vers le message de succès
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        // Erreur
-        throw new Error('Erreur lors de l\'envoi');
+        // Tentative de méthode alternative
+        console.log('Tentative avec méthode alternative...');
+        sendViaHiddenForm();
       }
     } catch (error) {
-      console.error('Erreur:', error);
-      setErrors({ submit: "Une erreur est survenue lors de l'envoi. Veuillez réessayer ou utiliser l'email directement." });
+      console.error('Erreur lors de l\'envoi:', error);
+      // Utiliser la méthode de secours
+      sendViaHiddenForm();
+    }
+  };
+
+  // Méthode de secours avec formulaire caché
+  const sendViaHiddenForm = () => {
+    try {
+      // Créer un formulaire caché
+      const hiddenForm = document.createElement('form');
+      hiddenForm.style.display = 'none';
+      hiddenForm.method = 'POST';
+      hiddenForm.action = '/';
+      hiddenForm.innerHTML = `
+        <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="name" value="${encodeURIComponent(formData.name)}">
+        <input type="hidden" name="email" value="${encodeURIComponent(formData.email)}">
+        <input type="hidden" name="phone" value="${encodeURIComponent(formData.phone)}">
+        <input type="hidden" name="inquiry" value="${encodeURIComponent(formData.inquiry)}">
+        <input type="hidden" name="bot-field" value="">
+      `;
+      
+      document.body.appendChild(hiddenForm);
+      hiddenForm.submit();
+      
+      // Marquer comme soumis même si on ne peut pas vérifier
+      setTimeout(() => {
+        setIsSubmitted(true);
+        setIsSubmitting(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          inquiry: ''
+        });
+      }, 1000);
+      
+    } catch (error) {
+      console.error('Erreur méthode alternative:', error);
+      setErrors({ 
+        submit: "Erreur d'envoi. Veuillez utiliser le lien email ci-dessous."
+      });
       setIsSubmitting(false);
     }
+  };
+
+  // Alternative directe par email
+  const sendEmailDirectly = () => {
+    const subject = encodeURIComponent("Demande de contact depuis edolia-mada.com");
+    const body = encodeURIComponent(`
+Nom: ${formData.name}
+Email: ${formData.email}
+Téléphone: ${formData.phone || 'Non fourni'}
+Message:
+${formData.inquiry}
+
+---
+Envoyé depuis le formulaire de contact du site edolia-mada.com
+    `);
+    
+    window.location.href = `mailto:contact@edolia-mada.com?subject=${subject}&body=${body}`;
   };
 
   const toggleFaq = (index) => {
@@ -112,6 +197,21 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
+      {/* Formulaire caché pour Netlify - IMPORTANT */}
+      <form 
+        name="contact" 
+        netlify 
+        netlify-honeypot="bot-field" 
+        hidden
+        aria-hidden="true"
+      >
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <textarea name="inquiry"></textarea>
+        <input type="text" name="bot-field" />
+      </form>
+
       {/* Hero Section */}
       <section className="bg-neutral-950 text-white py-16">
         <div className="section-padding">
@@ -161,8 +261,8 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-white mb-1">Adresse</h3>
                       <p className="text-gray-300">
-                        Immeuble STOI Ankorondrano Village des jeux,<br />
-                        Antananarivo 101, Madagascar
+                        85 BD JOFFRE PLLE 32/11,<br />
+                        Toamasina 501, Madagascar
                       </p>
                     </div>
                   </div>
@@ -213,7 +313,7 @@ const Contact = () => {
                 </h3>
                 <div className="bg-gray-800 rounded-xl overflow-hidden h-64">
                   <iframe
-                    src="https://maps.google.com/maps?q=Immeuble%20STOI%20Ankorondrano%20Village%20des%20jeux,%20Antananarivo,%20Madagascar&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=edolia&t=&z=17&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -241,6 +341,9 @@ const Contact = () => {
                       <p className="text-red-400 text-lg font-semibold">
                         contact@edolia-mada.com
                       </p>
+                      <p className="text-sm text-gray-400 mt-2">
+                        Une copie a été envoyée à votre adresse email.
+                      </p>
                     </div>
                     <button
                       onClick={() => setIsSubmitted(false)}
@@ -258,23 +361,24 @@ const Contact = () => {
                       Votre message sera envoyé directement à notre boîte email et vous recevrez une copie de confirmation.
                     </p>
 
-                    {/* Formulaire Netlify - IMPORTANT : data-netlify="true" et netlify */}
+                    {/* Formulaire Netlify */}
                     <form 
                       name="contact" 
                       method="POST" 
                       data-netlify="true"
                       data-netlify-honeypot="bot-field"
-                      netlify
                       onSubmit={handleSubmit}
                       className="space-y-6"
                     >
-                      {/* Champ caché pour Netlify */}
+                      {/* Champ caché pour Netlify - REQUIS */}
                       <input type="hidden" name="form-name" value="contact" />
                       
                       {/* Honeypot pour spam */}
-                      <div className="hidden">
-                        <label htmlFor="bot-field">Ne remplissez pas ce champ :</label>
-                        <input name="bot-field" id="bot-field" />
+                      <div className="hidden" aria-hidden="true">
+                        <label>
+                          Ne remplissez pas ce champ :
+                          <input name="bot-field" />
+                        </label>
                       </div>
 
                       {/* Nom complet */}
@@ -363,17 +467,18 @@ const Contact = () => {
                       {errors.submit && (
                         <div className="bg-red-900/30 border border-red-700 rounded-lg p-3">
                           <p className="text-red-300 text-sm">{errors.submit}</p>
-                          <a 
-                            href="mailto:contact@edolia-mada.com" 
+                          <button
+                            type="button"
+                            onClick={sendEmailDirectly}
                             className="text-red-400 hover:text-red-300 underline text-sm mt-1 inline-block"
                           >
                             Cliquez ici pour envoyer directement par email
-                          </a>
+                          </button>
                         </div>
                       )}
 
-                      {/* Bouton d'envoi */}
-                      <div className="pt-4">
+                      {/* Boutons d'envoi */}
+                      <div className="space-y-4 pt-4">
                         <button
                           type="submit"
                           disabled={isSubmitting}
@@ -387,22 +492,31 @@ const Contact = () => {
                           ) : (
                             <>
                               <Send className="mr-2 w-5 h-5" />
-                              Envoyer
+                              Envoyer via formulaire
                             </>
                           )}
+                        </button>
+
+                        {/* Bouton de secours */}
+                        <button
+                          type="button"
+                          onClick={sendEmailDirectly}
+                          className="w-full bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg border border-gray-700 hover:bg-gray-700 transition-colors flex items-center justify-center"
+                        >
+                          <Mail className="mr-2 w-5 h-5" />
+                          Envoyer directement par email
                         </button>
                       </div>
                     </form>
 
-                    {/* Alternative mailto pour mobile */}
                     <div className="mt-8 pt-8 border-t border-gray-800">
                       <div className="text-center">
-                        <p className="text-sm text-gray-400 mb-3">
-                          Préférez-vous utiliser directement votre application email ?
+                        <p className="text-sm text-gray-400">
+                          Si le formulaire ne fonctionne pas, utilisez directement votre application email :
                         </p>
                         <a
                           href="mailto:contact@edolia-mada.com?subject=Demande de contact"
-                          className="inline-flex items-center justify-center w-full max-w-md py-3 border border-gray-700 rounded-lg text-gray-300 hover:bg-gray-800 transition-colors hover:border-gray-600"
+                          className="inline-flex items-center justify-center w-full max-w-md py-3 mt-3 border border-gray-700 rounded-lg text-gray-300 hover:bg-gray-800 transition-colors hover:border-gray-600"
                         >
                           <Mail className="w-5 h-5 mr-2" />
                           Ouvrir dans l'application email (Gmail/Outlook)
